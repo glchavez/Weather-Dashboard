@@ -140,3 +140,16 @@ function clearCurrent() {
     currentUVI.text("");
 };
 
+// Saves the last searched city name to be used for the history section when page is reloaded
+function createSearchHistory(city) {
+
+    var historyBtn = $("<button>", { "class": "col-sm-12 btn btn-outline-secondary" }).text(city);
+    $("#historySearchBtn").prepend(historyBtn);
+};
+
+// Populates weather for last searched city when button is clicked
+$("#historySearchBtn").click(function (event) {
+
+    currentWeatherData(event.target.textContent)
+});
+
