@@ -74,3 +74,58 @@ $("#city-search").on("click", function getCurrentWeather(event) {
     currentWeatherData(cityName);
 });
 
+// Populates the forecast weather information
+function getForecastWeather() {
+
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + latCoordinates + '&lon=' + lonCoordinates + '&exclude=minutely,hourly,alerts&units=imperial&appid=519f87e1804e397b8b29deaf887fdfc3')
+
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (forecastData) {
+            console.log(forecastData);
+
+            var searchedUVI = forecastData.current.uvi;
+
+            if (searchedUVI <= 2) {
+                currentUVI.addClass("green").removeClass("yellow red");
+            } else if (searchedUVI > 2 && searchedUVI < 8) {
+                currentUVI.addClass("yellow").removeClass("green red");
+            } else if (searchedUVI >= 8) {
+                currentUVI.addClass("red").removeClass("green yellow");
+            };
+
+            currentUVI.append(searchedUVI);
+
+            for (i = 1; i < 6; i++) {
+
+                // Convert forecast weather data date to a more readable format
+                var forecastDate = $("#forecast-block-" + [i]).children(".forecast-date");
+                forecastDate.text("");
+                var forecastDateData = forecastData.daily[i].dt;
+                var date = new Date(forecastDateData * 1000);
+                var year = date.getFullYear();
+                var month = date.getMonth();
+                var day = date.getDate();
+                var convertedForecastDate = month + "/" + day + "/" + year;
+                forecastDate.append(convertedForecastDate);
+
+                var forecastIcon = $("#forecast-block-" + [i]).children(".forecast-icon");
+                var forecastIconData = forecastData.daily[i].weather[0].icon;
+                var forecastIconURL = 'http://openweathermap.org/img/wn/' + forecastIconData + '@2x.png';
+                forecastIcon.attr("src", forecastIconURL);
+
+                var forecastTemp = $("#forecast-block-" + [i]).children(".temperature");
+                forecastTemp.text("Temp: ");
+                var forecastTempData = forecastData.daily[i].temp.day;
+                forecastTemp.append(forecastTempData + " °F");
+
+                var forecastHumidity = $("#forecast-block-" + [i]).children(".humidity");
+                forecastHumidity.text("Humidity: ");
+                var forecastHumidityData = forecastData.daily[i].humidity;
+                forecastHumidity.append(forecastHumidityData + "%");
+
+            };
+        });
+};
+
