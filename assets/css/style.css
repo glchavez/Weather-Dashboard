@@ -28,3 +28,24 @@
     font-weight: bold;
 }
 
+.green,
+.yellow,
+.red {
+    border-radius: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
