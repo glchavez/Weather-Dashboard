@@ -17,3 +17,46 @@ if (localStorage.getItem("city")) {
     console.log("No previous search history")
 };
 
+// Populates the current day weather information
+function currentWeatherData(cityName) {
+
+    clearCurrent();
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=d98badc946d5bab20021e4552ce1d082')
+
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+
+            var searchedCity = data.name;
+            currentCity.append(searchedCity);
+
+            var currentDate = data.dt;
+            convertDate(currentDate);
+
+            var iconCode = data.weather[0].icon;
+            var iconURL = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png';
+            currentWeatherIcon.attr("src", iconURL);
+
+            var searchedTemp = data.main.temp;
+            currentTemp.append(searchedTemp + " °F");
+
+            var searchedHumidity = data.main.humidity;
+            currentHumidity.append(searchedHumidity + "%");
+
+            var searchedWind = data.wind.speed;
+            currentWind.append(searchedWind + " MPH");
+
+            var searchedLonCoor = data.coord.lon;
+            lonCoordinates = searchedLonCoor;
+
+            var searchedLatCoor = data.coord.lat;
+            latCoordinates = searchedLatCoor;
+
+            getForecastWeather();
+        });
+
+};
+
