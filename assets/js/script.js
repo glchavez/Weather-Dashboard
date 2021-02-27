@@ -129,3 +129,14 @@ function getForecastWeather() {
         });
 };
 
+// Clears information in the current weather slots, making them ready for the next searched city
+function clearCurrent() {
+
+    currentCity.text("");
+    displayedDate.text("");
+    currentTemp.text("Temperature: ");
+    currentHumidity.text("Humidity: ");
+    currentWind.text("Wind Speed: ");
+    currentUVI.text("");
+};
+
