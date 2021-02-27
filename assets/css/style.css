@@ -6,3 +6,25 @@
     padding: 15px;
 }
 
+#current {
+    line-height: 2.5;
+    padding-left: 30px;
+}
+
+.forecast .col-lg {
+    margin-right: 15px;
+    font-size: small;
+    line-height: 2;
+}
+
+.forecast .col-xs-12 {
+    margin-bottom: 15px;
+    font-size: small;
+    line-height: 2;
+}
+
+.forecast-date {
+    font-size: medium;
+    font-weight: bold;
+}
+
