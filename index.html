@@ -17,7 +17,30 @@
 
 <body>
 
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+        <div class="navbar-brand mb-0 h1">Weather Dashboard</div>
+    </nav>
 
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div id="search" class="col-sm-4 bg-light">
+
+                <div class="row">
+                    <form class="form-group">
+                        <label class="h6" for="citySearch">Search for a City:</label>
+                        <div class="form-inline">
+                            <input id="city-name" class="form-control mr-sm-2" type="search" aria-label="Search">
+                            <button id="city-search" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="historySearchBtn" class="row"></div>
+
+            </div>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
