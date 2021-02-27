@@ -9,3 +9,11 @@ var currentUVI = $(".uvi");
 // Coordinate variables to link city name from current city API to forecast API
 var lonCoordinates = "";
 var latCoordinates = "";
+
+// Populates last searched city when page is reloaded
+if (localStorage.getItem("city")) {
+    createSearchHistory(localStorage.getItem("city"));
+} else {
+    console.log("No previous search history")
+};
+
