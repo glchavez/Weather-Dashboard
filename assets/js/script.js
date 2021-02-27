@@ -60,3 +60,17 @@ function currentWeatherData(cityName) {
 
 };
 
+// Search button to retrieve both current and forecast weather information of searched city
+$("#city-search").on("click", function getCurrentWeather(event) {
+
+    clearCurrent();
+    event.preventDefault();
+
+    var cityName = $("#city-name").val();
+
+    localStorage.setItem("city", cityName);
+    createSearchHistory(cityName);
+
+    currentWeatherData(cityName);
+});
+
