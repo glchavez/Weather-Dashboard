@@ -153,3 +153,15 @@ $("#historySearchBtn").click(function (event) {
     currentWeatherData(event.target.textContent)
 });
 
+// Convert current weather data date to a readable format
+function convertDate(fetchedDate) {
+
+    var date = new Date(fetchedDate * 1000);
+
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+
+    var convertedDate = " (" + month + "/" + day + "/" + year + ")";
+    displayedDate.append(convertedDate);
+};
