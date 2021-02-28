@@ -40,9 +40,9 @@ When a city is searched, it is added to the history section of the page on the b
 
 When the page is reloaded, the history section is cleared, except for the most recently searched city.
 
-![Weather application layout]()
+![Weather application layout](assets/images/website_desktop.png)
 
-![Mobile layout]()
+![Mobile layout](assets/images/website_mobile.png)
 
 
 ## Credits
