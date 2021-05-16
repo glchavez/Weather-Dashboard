@@ -1,8 +1,8 @@
 # Weather-Dashboard
 
-## Description 
-
 This application helps individual's research weather conditions of a city, for any use such as planning a road trip or weekend getaway. The application provides a five day forecast as well, complementing the future trip planning use of the application.
+
+## Overview
 
 This application was created to test my skills in JavaScript, jQuery, CSS, and HTML. I built this application from scratch, taking advantage of the opportunity to use my knowledge in each coding language, but also my ability to plan what the code will look like and how to create an efficient code base to start with.
 
